@@ -5,7 +5,7 @@ This is a fullstack monorepo built with NX, featuring a Vue frontend and a Node.
 ## Project Structure
 
 ```
-my-nx-monorepo
+email-signature
 ├── apps
 │   ├── frontend          # Vue frontend application
 │   └── backend           # Node.js backend application
@@ -29,7 +29,7 @@ my-nx-monorepo
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd my-nx-monorepo
+   cd email-signature
    ```
 
 2. Install dependencies:

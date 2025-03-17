@@ -1,5 +1,5 @@
 {
-  "npmScope": "my-nx-monorepo",
+  "npmScope": "email-signature",
   "affected": {
     "defaultBase": "main"
   },

@@ -1,5 +1,5 @@
 {
-  "name": "my-nx-monorepo",
+  "name": "email-signature",
   "version": "1.0.0",
   "private": true,
   "scripts": {
