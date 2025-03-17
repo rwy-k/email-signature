@@ -1,0 +1,25 @@
+{
+  "name": "my-nx-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nx build",
+    "serve": "nx serve",
+    "test": "nx test",
+    "lint": "nx lint"
+  },
+  "devDependencies": {
+    "@nrwl/cli": "^latest",
+    "@nrwl/workspace": "^latest",
+    "typescript": "^latest",
+    "vite": "^latest",
+    "vue": "^latest",
+    "vue-router": "^latest",
+    "vuex": "^latest",
+    "express": "^latest",
+    "ts-node": "^latest"
+  },
+  "dependencies": {
+    "axios": "^latest"
+  }
+}
