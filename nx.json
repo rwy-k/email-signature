@@ -23,9 +23,6 @@
     },
     "backend": {
       "tags": []
-    },
-    "shared": {
-      "tags": []
     }
   }
 }

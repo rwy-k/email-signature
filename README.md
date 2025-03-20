@@ -9,8 +9,6 @@ email-signature
 ├── apps
 │   ├── frontend          # Vue frontend application
 │   └── backend           # Node.js backend application
-├── libs
-│   └── shared            # Shared library for common utilities and types
 ├── nx.json               # NX workspace configuration
 ├── package.json          # NPM dependencies and scripts
 ├── tsconfig.base.json    # Base TypeScript configuration
@@ -23,6 +21,7 @@ email-signature
 
 - Node.js (version >= 14)
 - npm or yarn
+- Docker and Docker Compose (for containerized deployment)
 
 ### Installation
 
@@ -45,6 +44,7 @@ To run the Vue frontend application, navigate to the frontend directory and star
 
 ```
 cd apps/frontend
+npm install
 npm run dev
 ```
 
@@ -54,6 +54,8 @@ To run the Node.js backend application, navigate to the backend directory and st
 
 ```
 cd apps/backend
+npm install
+npm run build
 npm run start
 ```
 
@@ -75,14 +77,16 @@ cd apps/backend
 npm run build
 ```
 
-## Shared Library
+#### Docker Deployment
 
-The `libs/shared` directory contains shared utilities and types that can be used across both the frontend and backend applications.
+To run the entire application stack in Docker:
+```
+docker-compose up --build
+```
 
-## Contributing
+This will start both the frontend and backend services in separate containers as defined in the docker-compose.yml file.
 
-Feel free to submit issues or pull requests for any improvements or features you would like to see!
-
-## License
-
-This project is licensed under the MIT License.
+To stop the containers:
+```
+docker-compose down
+```

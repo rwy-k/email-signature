@@ -1,0 +1,79 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: email-signature-backend
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: sync
+          path: ./apps/backend
+          target: /app
+          ignore:
+            - .git
+            - node_modules
+        - action: rebuild
+          path: package.json
+    image: compose-backend
+    ports:
+      - "3000:3000"
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+      - REDIS_HOST=redis  
+      - REDIS_PORT=6379   
+    depends_on:           
+      - redis
+    networks:
+      - app-network
+      
+  frontend:
+    container_name: email-signature-front
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: sync
+          path: ./apps/frontend
+          target: /app
+          ignore:
+            - .git
+            - node_modules
+        - action: rebuild
+          path: package.json
+    image: compose-frontend
+    ports:
+      - "5173:5173"
+    command: npm run dev -- --host
+    environment:
+      - VITE_API_URL=/api
+      - VITE_API_HOST=backend
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: email-signature-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: always
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis-data:
+networks:
+  app-network:
+    driver: bridge
