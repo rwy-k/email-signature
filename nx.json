@@ -1,0 +1,28 @@
+{
+  "npmScope": "email-signature",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runner",
+      "options": {
+        "maxParallel": 3,
+        "cacheableOperations": ["build", "lint", "test"]
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/vue:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "frontend": {
+      "tags": []
+    },
+    "backend": {
+      "tags": []
+    }
+  }
+}

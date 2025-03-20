@@ -1,0 +1,27 @@
+{
+  "name": "email-signature",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  },
+  "scripts": {
+    "build": "nx build",
+    "serve": "nx serve",
+    "test": "nx test",
+    "lint": "nx lint"
+  },
+  "devDependencies": {
+    "@nrwl/cli": "^latest",
+    "@nrwl/workspace": "^latest",
+    "typescript": "^latest",
+    "vite": "^latest",
+    "vue": "^latest",
+    "vue-router": "^latest",
+    "vuex": "^latest",
+    "vue-tsc": "^1.8.0" ,
+    "express": "^latest",
+    "ts-node": "^latest"
+  }
+}
