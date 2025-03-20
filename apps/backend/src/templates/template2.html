@@ -1,0 +1,167 @@
+<table style="font-family: 'Open Sans', Arial, sans-serif; max-width: 600px; color: #333333; border-collapse: collapse; margin: 0; padding: 0; background: #ffffff; border: 1px solid #e8e8e8;" cellpadding="0" cellspacing="0">
+    <!-- Header with colored banner -->
+    <tr>
+        <td style="background-color: <%= accentColor || '#2c3e50' %>; padding: 12px 20px; color: white;">
+            <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                <tr>
+                    <td>
+                        <h1 style="font-size: 18px; font-weight: 600; margin: 0; padding: 0; color: #ffffff;"><%= fullName %></h1>
+                        <p style="font-size: 13px; font-weight: 400; margin: 3px 0 0 0; padding: 0; color: #e8e8e8;"><%= jobTitle %> | <%= companyName %></p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- Main content area -->
+    <tr>
+        <td style="padding: 15px 20px;">
+            <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                <tr>
+                    <!-- Profile Photo Column -->
+                        <% if (profilePhoto) { %>
+                    <td style="vertical-align: top; width: 90px;">
+                        <img src="<%= profilePhoto %>" alt="<%= fullName %>" style="width: 80px; height: 80px; border-radius: 4px; object-fit: cover; border: 1px solid #e0e0e0;">
+                    </td>
+                    <% } %>
+                    
+                    <!-- Contact Info Column -->
+                    <td style="vertical-align: top; padding-left: 15px;">
+                        <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                            <% if (phone || email) { %>
+                            <tr>
+                                <td style="padding-bottom: 8px;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <% if (phone) { %>
+                                        <tr>
+                                            <td style="vertical-align: top; padding: 3px 0;">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; padding-right: 8px;">
+                                                            <img src="<%= phoneIcon || 'https://cdn-icons-png.flaticon.com/128/3059/3059561.png' %>" alt="Phone" style="width: 14px; height: 14px; opacity: 0.75;">
+                                                        </td>
+                                                        <td style="vertical-align: middle;">
+                                                            <p style="margin: 0; padding: 0; font-size: 13px; color: #555555;"><%= phone %></p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                        <% if (email) { %>
+                                        <tr>
+                                            <td style="vertical-align: top; padding: 3px 0;">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; padding-right: 8px;">
+                                                            <img src="<%= emailIcon || 'https://cdn-icons-png.flaticon.com/128/3059/3059421.png' %>" alt="Email" style="width: 14px; height: 14px; opacity: 0.75;">
+                                                        </td>
+                                                        <td style="vertical-align: middle;">
+                                                            <a href="mailto:<%= email %>" style="margin: 0; padding: 0; font-size: 13px; color: #555555; text-decoration: none;"><%= email %></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    </table>
+                                </td>
+                            </tr>
+                            <% } %>
+                            
+                            <% if (website || companyAddress) { %>
+                            <tr>
+                                <td style="padding-bottom: 8px;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <% if (website) { %>
+                                        <tr>
+                                            <td style="vertical-align: top; padding: 3px 0;">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; padding-right: 8px;">
+                                                            <img src="<%= websiteIcon || 'https://cdn-icons-png.flaticon.com/128/1052/1052856.png' %>" alt="Website" style="width: 14px; height: 14px; opacity: 0.75;">
+                                                        </td>
+                                                        <td style="vertical-align: middle;">
+                                                            <a href="<%= websiteUrl || 'https://' + website %>" target="_blank" style="margin: 0; padding: 0; font-size: 13px; color: #555555; text-decoration: none;"><%= website %></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                        <% if (companyAddress) { %>
+                                        <tr>
+                                            <td style="vertical-align: top; padding: 3px 0;">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td style="vertical-align: middle; padding-right: 8px;">
+                                                            <img src="<%= addressIcon || 'https://cdn-icons-png.flaticon.com/128/4933/4933235.png' %>" alt="Address" style="width: 14px; height: 14px; opacity: 0.75;">
+                                                        </td>
+                                                        <td style="vertical-align: middle;">
+                                                            <p style="margin: 0; padding: 0; font-size: 13px; color: #555555;"><%= companyAddress %></p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    </table>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    
+    <!-- Social media and disclaimer footer -->
+    <% if (socialLinks && Object.keys(socialLinks).length > 0) { %>
+    <tr>
+        <td style="background-color: #f7f7f7; border-top: 1px solid #e8e8e8; padding: 12px 20px;">
+            <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                <tr>
+                    <td>
+                        <% if (socialLinks.linkedin) { %>
+                        <a href="<%= socialLinks.linkedin %>" target="_blank" style="display: inline-block; margin-right: 10px; text-decoration: none;">
+                            <img src="<%= socialIcons.linkedin || 'https://cdn-icons-png.flaticon.com/128/3536/3536505.png' %>" alt="LinkedIn" style="width: 24px; height: 24px; border: 0;">
+                        </a>
+                        <% } %>
+                        <% if (socialLinks.twitter) { %>
+                        <a href="<%= socialLinks.twitter %>" target="_blank" style="display: inline-block; margin-right: 10px; text-decoration: none;">
+                            <img src="<%= socialIcons.twitter || 'https://cdn-icons-png.flaticon.com/128/3256/3256013.png' %>" alt="Twitter" style="width: 24px; height: 24px; border: 0;">
+                        </a>
+                        <% } %>
+                        <% if (socialLinks.facebook) { %>
+                        <a href="<%= socialLinks.facebook %>" target="_blank" style="display: inline-block; margin-right: 10px; text-decoration: none;">
+                            <img src="<%= socialIcons.facebook || 'https://cdn-icons-png.flaticon.com/128/174/174848.png' %>" alt="Facebook" style="width: 24px; height: 24px; border: 0;">
+                        </a>
+                        <% } %>
+                        <% if (socialLinks.instagram) { %>
+                        <a href="<%= socialLinks.instagram %>" target="_blank" style="display: inline-block; margin-right: 10px; text-decoration: none;">
+                            <img src="<%= socialIcons.instagram || 'https://cdn-icons-png.flaticon.com/128/2111/2111463.png' %>" alt="Instagram" style="width: 24px; height: 24px; border: 0;">
+                        </a>
+                        <% } %>
+                        <% Object.keys(socialLinks).forEach(platform => { 
+                            if (!['linkedin', 'twitter', 'facebook', 'instagram'].includes(platform) && socialLinks[platform]) { %>
+                        <a href="<%= socialLinks[platform] %>" target="_blank" style="display: inline-block; margin-right: 10px; text-decoration: none;">
+                            <img src="<%= socialIcons[platform] || 'https://via.placeholder.com/24' %>" alt="<%= platform.charAt(0).toUpperCase() + platform.slice(1) %>" style="width: 24px; height: 24px; border: 0;">
+                        </a>
+                        <% }
+                        }); %>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <% } %>
+    
+    <% if (disclaimer) { %>
+    <tr>
+        <td style="padding: 10px 20px; font-size: 10px; color: #999999; background-color: #f7f7f7; border-top: 1px solid #e8e8e8;">
+            <p style="margin: 0; padding: 0; line-height: 1.3; font-style: italic;"><%= disclaimer %></p>
+        </td>
+    </tr>
+    <% } %>
+</table>
